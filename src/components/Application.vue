@@ -1,7 +1,5 @@
 <template>
-  <h1>Application Page</h1>
   <Products :appData="topFreeApps" />
-  <p>{{ topFreeApps }}</p>
 </template>
 
 <script lang="ts">
@@ -19,7 +17,7 @@ export default {
         app.axios
             .get("https://cors-anywhere.herokuapp.com/https://rss.itunes.apple.com/api/v1/kr/ios-apps/top-free/all/25/explicit.json")
             .then(({ data }) => {
-                topFreeApps.value = data;
+                topFreeApps.value = data.feed;
             });
     });
 

@@ -33,11 +33,15 @@
 <script lang="ts">
 export default {
   name: "products",
-  props: ["appData"],
-  methods: {
-    iTune(url) {
+  props: {
+    appData: Object
+  },
+  setup() {
+    function iTune(url: string) {
       window.open(url, "_blank");
-    },
+    }
+
+    return { iTune };
   },
 };
 </script>
