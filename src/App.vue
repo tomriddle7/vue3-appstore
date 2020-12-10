@@ -1,26 +1,73 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+<div>
+  <div class="header">
+    <nav>
+      <ul>
+        <li><router-link to="/application">Apps</router-link></li>
+        <li><router-link to="/game">Game</router-link></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="container">
+    <router-view></router-view>
+  </div>
+</div>
 </template>
-
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
+<script lang="ts">
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+  name : 'app'
 }
-</script>
 
+</script>
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.header {
+  color: white;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  background-color: rgba(20, 20, 20);
+  z-index: 10;
+  box-shadow: 0px 1px 5px 2px rgba(0, 0, 0, 0.8);
+}
+ul {
+  display: flex;
+  list-style-type: none;
+  padding-inline-start: 0px;
+}
+li {
+  width: 25vw;
+  height: 50px;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: #ffffff;
+  transition: color 0.2s ease-in-out;
+}
+li.a {
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+a{
+  text-decoration:none;
+  color:inherit;
+}
+a.router-link-exact-active {
+  color: #0b84fe;
+}
+*{
+  box-sizing:border-box;
+}
+body{
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size:18px;
+  background-color:rgba(0, 0, 0, 1);
+  color:white;
+  padding-bottom:70px;
 }
 </style>
