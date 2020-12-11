@@ -35,9 +35,9 @@
       <div class="UpdateDate">
         <div class="ViewLeft width50">버전 {{ productDetail.version }}</div>
         <div class="ViewRight width50">
-          {{ productDetail.currentVersionReleaseDate.substr(0, 4) }}년
-          {{ productDetail.currentVersionReleaseDate.substr(5, 2) }}월
-          {{ productDetail.currentVersionReleaseDate.substr(8, 2) }}일
+          {{ productDetail.currentVersionReleaseDate ? productDetail.currentVersionReleaseDate.substr(0, 4) : '' }}년
+          {{ productDetail.currentVersionReleaseDate ? productDetail.currentVersionReleaseDate.substr(5, 2) : '' }}월
+          {{ productDetail.currentVersionReleaseDate ? productDetail.currentVersionReleaseDate.substr(8, 2) : '' }}일
         </div>
       </div>
       <div class="UpdateDetail">
@@ -65,7 +65,7 @@
       <div class="Overview">
         <div class="ViewLeft width25">언어</div>
         <div class="ViewRight width75">
-          {{ productDetail.languageCodesISO2A.join(" | ") }}
+          {{ productDetail.languageCodesISO2A ? productDetail.languageCodesISO2A.join(" | ") : '' }}
         </div>
       </div>
       <div class="Overview">
@@ -105,7 +105,7 @@ export default {
       
     });
 
-    return { iTune, goBack };
+    return { iTune, goBack, productDetail };
   },
 };
 </script>
