@@ -3,8 +3,10 @@
   <div class="header">
     <nav>
       <ul>
-        <li><router-link to="/application">Apps</router-link></li>
-        <li><router-link to="/game">Game</router-link></li>
+        <li><router-link to="/home"><font-awesome-icon icon="clipboard" /><br>Home</router-link></li>
+        <li><router-link to="/application"><font-awesome-icon icon="layer-group" /><br>Apps</router-link></li>
+        <li><router-link to="/game"><font-awesome-icon icon="rocket" /><br>Game</router-link></li>
+        <li><router-link to="/search"><font-awesome-icon icon="search" /><br>Search</router-link></li>
       </ul>
     </nav>
   </div>

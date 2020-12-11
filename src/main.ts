@@ -4,10 +4,10 @@ import axios from 'axios';
 import VueAxios from 'vue-axios';
 import router from './router';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faClipboard, faRocket, faLayerGroup, faSearch, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-library.add(faSpinner);
+library.add(faClipboard, faRocket, faLayerGroup, faSearch, faSpinner);
 
 const app = createApp(App);
 app.use(VueAxios, axios);

@@ -1,8 +1,8 @@
 <template>
   <Loader v-if="loading" />
   <div v-if="!loading">
-    <Products :appData="topFreeApps" />
-    <Products :appData="topPaidApps" />
+    <Products v-if="!checked" v-bind:appData="topFreeApps" />
+    <Products v-if="checked" v-bind:appData="topPaidApps" />
   </div>
 </template>
 
