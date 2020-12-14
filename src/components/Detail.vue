@@ -79,11 +79,13 @@
 </template>
 <script lang="ts">
 import { ref, onMounted } from "vue";
+import { useRoute } from 'vue-router';
 import app from "../main";
 
 export default {
   name: "detail",
   setup() {
+    const route = useRoute();
     let id = 0;
     const productDetail = ref({});
 
@@ -96,7 +98,7 @@ export default {
     }
 
     onMounted(() => {
-      id = parseInt(location.pathname.replace("/app/", ""));
+      id = Number(route.params.id);
       app.axios
           .get(`https://cors-anywhere.herokuapp.com/https://itunes.apple.com/lookup?id=${id}&country=KR`)
           .then(({ data }) => {
