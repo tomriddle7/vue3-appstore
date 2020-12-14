@@ -73,7 +73,7 @@ export default {
 
             set(newValue) {
                 this.currentState = newValue;
-                this.$emit('change', newValue);
+                this.$emit('OnChange', newValue);
             }
         }
     }

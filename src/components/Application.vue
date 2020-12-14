@@ -1,6 +1,10 @@
 <template>
   <Loader v-if="loading" />
   <div v-if="!loading">
+    <ToggleButton
+      :defaultState="true"
+      v-on:OnChange="eventHandler()"
+    />
     <Products v-if="!checked" v-bind:appData="topFreeApps" />
     <Products v-if="checked" v-bind:appData="topPaidApps" />
   </div>
@@ -10,19 +14,21 @@
 import { ref, onMounted } from "vue";
 import Loader from "./Loader.vue";
 import Products from "./Products.vue";
+import ToggleButton from "./ToggleButton.vue";
 import app from "../main";
 
 export default {
   name: "Application",
-  components: { Loader, Products },
+  components: { Loader, Products, ToggleButton },
   setup() {
     const topFreeApps = ref({});
     const topPaidApps = ref({});
-    let checked = false;
+    let checked = ref({});
     let error = "";
     let loading = ref({});
 
     onMounted(async () => {
+      checked.value = false;
       loading.value = true;
       try {
         const response1 = await app.axios.get(
@@ -42,7 +48,11 @@ export default {
       
     });
 
-    return { topFreeApps, topPaidApps, checked, error, loading };
+    function eventHandler() {
+      checked.value = !checked.value;
+    }
+
+    return { topFreeApps, topPaidApps, checked, error, loading, eventHandler };
   },
 };
 </script>
